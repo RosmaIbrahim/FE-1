@@ -8,7 +8,7 @@ Sistem Informasi berbasis Web untuk pengelolaan bank sampah warga Surabaya (khus
 ---
 
 ## 2. Hak Akses & Pengguna (User Roles)
-1. **User (Nasabah)**: Warga yang menyetorkan sampah dan mengelola saldo tabungan.
+1. **User (Nasabah)**: Warga yang menyetorkan sampah dan mengelola saldo tabungan, 1 rumah bisa lebih dari 1 nasabah
 2. **Admin (Pengurus Bank Sampah)**: Pengurus tingkat RW yang memproses transaksi setoran harian, verifikasi pencairan, serta mengelola jadwal dan harga.
 3. **Super Admin (Pihak Kelurahan)**: Pengawas tingkat kelurahan yang mengelola unit bank sampah per RW, akun admin, serta laporan/rekapitulasi wilayah.
 
