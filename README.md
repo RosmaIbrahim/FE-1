@@ -3,7 +3,7 @@ Bank Sampah
 # Dokumentasi Spesifikasi Kebutuhan Sistem Informasi Bank Sampah Surabaya
 
 ## 1. Deskripsi Singkat
-Sistem Informasi berbasis Web untuk pengelolaan bank sampah warga Surabaya 
+Sistem Informasi berbasis Web untuk pengelolaan bank sampah warga Surabaya Kelurahan Jambangan
 ---
 
 ## 2. Hak Akses & Pengguna (User Roles)
