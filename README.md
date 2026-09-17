@@ -3,8 +3,7 @@ Bank Sampah
 # Dokumentasi Spesifikasi Kebutuhan Sistem Informasi Bank Sampah Surabaya
 
 ## 1. Deskripsi Singkat
-Sistem Informasi berbasis Web untuk pengelolaan bank sampah warga Surabaya (khususnya 7 RW percontohan) serta katalog penjualan online produk hasil daur ulang sampah.
-
+Sistem Informasi berbasis Web untuk pengelolaan bank sampah warga Surabaya 
 ---
 
 ## 2. Hak Akses & Pengguna (User Roles)
