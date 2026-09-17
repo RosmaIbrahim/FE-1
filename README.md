@@ -20,7 +20,6 @@ Sistem Informasi berbasis Web untuk pengelolaan bank sampah warga Surabaya (khus
 * **Login**: NIK + Password
 * **Registrasi**:
   * Input: `Nama Lengkap`, `NIK` (unik & valid 16 digit), `Password`
-  * Verifikasi: OTP Email/WhatsApp (opsional)
   * Lupa Password: Reset via Email/WhatsApp
 
 ### B. Admin (Pengurus Bank Sampah)
