@@ -1,7 +1,8 @@
 # Style Guide — Bank Sampah Kelurahan Jambangan
 
 Panduan visual untuk seluruh antarmuka aplikasi Bank Sampah Kelurahan Jambangan (landing page, dashboard Nasabah, Admin RW, dan Super Admin Kelurahan). Semua kelas menggunakan utilitas **Tailwind CSS**.
-
+## Icon
+https://heroicons.com/ (2.1.5)
 ## 1. Tipografi
 
 ### 1.1 Font
