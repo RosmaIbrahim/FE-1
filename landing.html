@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Si-Bas | Bank Sampah Jambangan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container navbar-inner"><a href="#" class="brand"><img src="logo tulisan.png" alt="Logo Si-Bas" class="brand-logo"><div><p class="brand-name">Si-Bas</p><p class="brand-subtitle">Bank Sampah Jambangan</p></div></a><div class="nav-menu"><a href="#tentang">Tentang</a><a href="#layanan">Layanan</a><a href="#katalog">Katalog</a><a href="#cara-kerja">Cara Kerja</a></div><a href="#login" class="btn btn-primary nav-login auth-trigger" data-auth="login">Login</a><button id="menuBtn" class="menu-btn" aria-label="Buka menu" aria-expanded="false"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu"><div class="container mobile-menu-inner"><a href="#tentang" class="mobile-link">Tentang</a><a href="#layanan" class="mobile-link">Layanan</a><a href="#katalog" class="mobile-link">Katalog</a><a href="#cara-kerja" class="mobile-link">Cara Kerja</a><a href="#login" class="btn btn-primary mobile-login auth-trigger" data-auth="login">Login</a></div>
+    </div>
+  </nav>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-badge">Bank Sampah Digital</span>
+        <h1 class="hero-title">Kelola Sampah,<br><span>Ciptakan Nilai.</span></h1>
+        <p class="hero-description">
+          Si-Bas membantu masyarakat Kelurahan Jambangan mengelola
+          setoran sampah dan tabungan secara lebih mudah, teratur,
+          dan transparan.
+        </p>
+        <div class="hero-actions">
+          <a href="#login" class="btn btn-primary auth-trigger" data-auth="login">Mulai Setor Sampah</a>
+          <a href="#cara-kerja" class="btn btn-secondary">Pelajari</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-circle circle-one"></div>
+        <div class="hero-circle circle-two"></div>
+        <div class="hero-visual-content">
+          <div class="recycle-icon">♻</div>
+            <h2>Dari sampah menjadi manfaat.</h2>
+            <p>
+              Pilah sampah dari rumah, setorkan ke bank sampah,
+              dan kelola hasil setoran melalui Si-Bas.
+            </p>
+          <div class="process-grid">
+            <div class="process-item"><span>01</span><p>Pilah</p></div>
+            <div class="process-item"><span>02</span><p>Setor</p></div>
+            <div class="process-item"><span>03</span><p>Tabung</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="tentang" class="section section-white">
+    <div class="container about-grid"><div><p class="section-label">TENTANG SI-BAS</p><h2 class="section-title">Sampah lebih terkelola,<br>lingkungan lebih baik.</h2><p class="section-description">
+          Si-Bas merupakan sistem informasi yang membantu proses
+          pengelolaan Bank Sampah Kelurahan Jambangan menjadi
+          lebih mudah, teratur, dan transparan.
+        </p></div><div class="about-card"><div class="about-icon">♻</div><h3>Pengelolaan yang lebih teratur</h3><div class="about-list"><div class="about-item"><span class="check">✓</span><p>Pencatatan setoran sampah lebih terorganisir.</p></div><div class="about-item"><span class="check">✓</span><p>Nasabah dapat memantau tabungan hasil setoran.</p></div><div class="about-item"><span class="check">✓</span><p>Mendukung pemanfaatan kembali sampah menjadi produk berguna.</p></div></div></div>
+    </div>
+  </section>
+  <section id="layanan" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">LAYANAN</p><h2 class="section-title">Semua kebutuhan dalam satu tempat.</h2></div><div class="service-grid"><article class="service-card"><div class="service-icon">+</div><h3>Setor Sampah</h3><p>Setorkan sampah yang telah dipilah untuk dikelola Bank Sampah.</p></article><article class="service-card"><div class="service-icon service-icon-small">Rp</div><h3>Tabungan Sampah</h3><p>Pantau nilai hasil setoran yang tercatat sebagai tabungan.</p></article><article class="service-card"><div class="service-icon">↓</div><h3>Pencairan Saldo</h3><p>Ajukan pencairan saldo tabungan melalui Si-Bas.</p></article><article class="service-card"><div class="service-icon">≡</div><h3>Riwayat Setoran</h3><p>Lihat kembali catatan setoran sampah yang telah dilakukan.</p></article></div>
+    </div>
+  </section>
+  <section id="katalog" class="section section-white">
+    <div class="container"><div class="section-header"><p class="section-label">KATALOG PRODUK</p><h2 class="section-title">Sampah yang kembali bernilai.</h2><p class="section-description catalog-intro">
+          Contoh produk hasil pemanfaatan kembali material bekas
+          menjadi barang yang lebih berguna.
+        </p>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-image">
+            <img src="tas anyaman.jpg" alt="Tas anyaman daur ulang">
+            <span class="product-badge">Plastik</span>
+          </div>
+          <div class="product-content">
+            <h3>Tas Anyaman Daur Ulang</h3>
+            <p>Kemasan plastik bekas dimanfaatkan kembali menjadi tas anyaman yang dapat digunakan berulang kali.</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image">
+            <img src="pot tanaman.jpg" alt="Pot tanaman daur ulang">
+            <span class="product-badge">Botol Plastik</span>
+          </div>
+          <div class="product-content">
+            <h3>Pot Tanaman Kreatif</h3>
+            <p>Botol plastik bekas dimanfaatkan menjadi pot sederhana untuk tanaman hias.</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image">
+            <img src="keranjang.jpg" alt="Keranjang daur ulang">
+            <span class="product-badge">Kertas</span>
+          </div>
+          <div class="product-content">
+            <h3>Keranjang Serbaguna</h3>
+            <p>Kertas bekas diolah kembali menjadi keranjang penyimpanan yang sederhana dan fungsional.</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image">
+            <img src="tempat pensil.jpg" alt="Tempat pensil dari kaleng bekas">
+            <span class="product-badge">Kaleng</span>
+          </div>
+          <div class="product-content">
+            <h3>Tempat Pensil</h3>
+            <p>Kaleng bekas dihias kembali menjadi tempat penyimpanan alat tulis yang praktis.</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image">
+            <img src="bunga hias.jpg" alt="Bunga hias daur ulang">
+            <span class="product-badge">Plastik</span>
+          </div>
+          <div class="product-content">
+            <h3>Bunga Hias</h3>
+            <p>Material plastik bekas dibentuk menjadi bunga dekoratif untuk mempercantik ruangan.</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image">
+            <img src="dekorasi kardus.jpg" alt="Dekorasi dari kardus bekas">
+            <span class="product-badge">Kardus</span>
+          </div>
+          <div class="product-content">
+            <h3>Dekorasi Kardus</h3>
+            <p>Kardus bekas dimanfaatkan menjadi dekorasi ringan dengan bentuk yang kreatif.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="cara-kerja" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">CARA KERJA</p>
+        <h2 class="section-title">Mulai dalam beberapa langkah.</h2>
+      </div>
+      <div class="work-grid">
+        <div class="work-step">
+          <span>01</span>
+          <h3>Daftar</h3>
+          <p>Buat akun nasabah untuk mulai menggunakan Si-Bas.</p>
+        </div>
+        <div class="work-step">
+          <span>02</span>
+          <h3>Pilah & Setor</h3>
+          <p>Pilah sampah dari rumah lalu setorkan ke Bank Sampah.</p>
+        </div>
+        <div class="work-step">
+          <span>03</span>
+          <h3>Dapatkan Saldo</h3>
+          <p>Nilai hasil setoran akan tercatat ke tabungan nasabah.</p>
+        </div>
+        <div class="work-step">
+          <span>04</span>
+          <h3>Cairkan</h3>
+          <p>Ajukan pencairan ketika saldo tabungan ingin digunakan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Yuk, mulai kelola sampahmu.</h2>
+        <p>Jadikan sampah lebih bernilai bersama Si-Bas.</p>
+        <a href="#register" class="btn btn-light auth-trigger" data-auth="register">Daftar Sekarang</a>
+      </div>
+    </div>
+  </section>
+  <!-- LOGIN -->
+  <div id="authModal" class="auth-modal" aria-hidden="true">
+    <div class="auth-backdrop" data-close-auth></div>
+    <section id="authCard" class="auth-card role-nasabah" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+    <header id="authHeader" class="auth-header auth-header--nasabah">
+        <div class="auth-brand"><img src="logo tulisan.png" alt="Logo Si-Bas" class="auth-logo">
+          <div>
+            <h2 class="auth-brand-title">Bank Sampah</h2>
+            <p class="auth-brand-subtitle">Kel. Jambangan · Surabaya</p>
+          </div>
+        </div>
+        <button id="authClose" type="button" class="auth-close" aria-label="Tutup form">&times;</button>
+    </header>
+    <div class="auth-content">
+        <div class="role-tabs" aria-label="Pilih peran">
+            <button type="button" class="role-tab active" data-role="nasabah">Nasabah</button>
+            <button type="button" class="role-tab" data-role="admin">Admin RW</button>
+            <button type="button" class="role-tab" data-role="kelurahan">Kelurahan</button>
+        </div>
+        <h2 id="formTitle" class="auth-title">Masuk sebagai Nasabah</h2>
+        <form id="loginForm"><div class="form-group">
+            <label id="identityLabel" for="identity" class="form-label">NIK</label>
+            <input id="identity" name="identity" type="text" class="form-input" placeholder="16 digit NIK" inputmode="numeric" maxlength="16" autocomplete="username" required></div><div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <div class="password-wrapper">
+              <input id="password" name="password" type="password" class="form-input" placeholder="Masukkan password" autocomplete="current-password" required>
+              <button type="button" class="password-toggle" aria-label="Tampilkan password">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+        </div><button id="loginButton" type="submit" class="auth-button auth-button--nasabah">Masuk</button>
+        </form><div id="loginFooter"><p class="auth-footer">Belum punya akun?<button type="button" class="auth-link register-trigger">Daftar sekarang</button></p></div>
+    </div>
+    </section>
+  </div>
+  <!-- REGISTER -->
+  <div id="registerModal" class="auth-modal" aria-hidden="true">
+    <div class="auth-backdrop" data-close-register></div>
+    <section class="auth-card role-nasabah" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+        <header class="auth-header auth-header--nasabah">
+            <div class="auth-brand"><img src="logo tulisan.png" alt="Logo Si-Bas" class="auth-logo">
+                <div>
+                    <h2 class="auth-brand-title">Daftar Nasabah</h2>
+                    <p class="auth-brand-subtitle">Bank Sampah Jambangan</p>
+                </div>
+            </div>
+            <button id="registerClose" type="button" class="auth-close" aria-label="Tutup form">&times;</button>
+        </header>
+        <div class="auth-content">
+            <h2 id="registerTitle" class="auth-title auth-title-register">Buat akun Si-Bas</h2>
+            <p class="auth-description">Pendaftaran akun tersedia untuk Nasabah.</p>
+            <form id="registerForm"><div class="form-group">
+                <label for="registerName" class="form-label">Nama lengkap</label>
+                <input id="registerName" name="name" type="text" class="form-input" placeholder="Masukkan nama lengkap" autocomplete="name" required></div>
+                <div class="form-group">
+                    <label for="registerNik" class="form-label">NIK</label>
+                    <input id="registerNik" name="nik" type="text" class="form-input" placeholder="16 digit NIK" inputmode="numeric" maxlength="16" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword" class="form-label">Password</label>
+                    <div class="password-wrapper">
+                        <input id="registerPassword" name="password" type="password" class="form-input" placeholder="Buat password" autocomplete="new-password" required>
+                        <button type="button" class="password-toggle" data-target="registerPassword" aria-label="Tampilkan password">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="auth-button auth-button--nasabah">Daftar</button>
+            </form>
+              <p class="auth-footer">Sudah punya akun?<button type="button" class="auth-link login-trigger">Masuk</button></p>
+        </div>
+    </section>
+  </div>
+  <footer class="footer">
+    <div class="container footer-inner"><div><p class="footer-brand">Si-Bas</p><p class="footer-subtitle">Bank Sampah Kelurahan Jambangan</p></div><p class="footer-copy">© 2026 Si-Bas · Surabaya</p>
+    </div>
+  </footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const authModal = document.getElementById('authModal');
+    const registerModal = document.getElementById('registerModal');
+    const authCard = document.getElementById('authCard');
+    const authHeader = document.getElementById('authHeader');
+    const authClose = document.getElementById('authClose');
+    const registerClose = document.getElementById('registerClose');
+    const formTitle = document.getElementById('formTitle');
+    const identityLabel = document.getElementById('identityLabel');
+    const identity = document.getElementById('identity');
+    const password = document.getElementById('password');
+    const loginButton = document.getElementById('loginButton');
+    const loginFooter = document.getElementById('loginFooter');
+    const roleConfig = {
+      nasabah: {
+        title: 'Masuk sebagai Nasabah', label: 'NIK', placeholder: '16 digit NIK',
+        header: 'auth-header--nasabah', button: 'auth-button--nasabah', card: 'role-nasabah'
+      },
+      admin: {
+        title: 'Masuk sebagai Admin RW', label: 'Username', placeholder: 'admin_rw01',
+        header: 'auth-header--admin', button: 'auth-button--admin', card: 'role-admin'
+      },
+      kelurahan: {
+        title: 'Masuk sebagai Kelurahan', label: 'Username', placeholder: 'kelurahan_jambangan',
+        header: 'auth-header--kelurahan', button: 'auth-button--kelurahan', card: 'role-kelurahan'
+      }
+    };
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+      menuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('show'));
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('show');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+    function openModal(modal) {
+      authModal.classList.remove('show');
+      registerModal.classList.remove('show');
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      mobileMenu.classList.remove('show');
+    }
+    function closeModals() {
+      authModal.classList.remove('show');
+      registerModal.classList.remove('show');
+      authModal.setAttribute('aria-hidden', 'true');
+      registerModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+    document.querySelectorAll('.auth-trigger').forEach(trigger => {
+      trigger.addEventListener('click', event => {
+        event.preventDefault();
+        openModal(trigger.dataset.auth === 'register' ? registerModal : authModal);
+      });
+    });
+    authClose.addEventListener('click', closeModals);
+    registerClose.addEventListener('click', closeModals);
+    document.querySelector('[data-close-auth]').addEventListener('click', closeModals);
+    document.querySelector('[data-close-register]').addEventListener('click', closeModals);
+    document.addEventListener('click', event => {
+      if (event.target.closest('.register-trigger')) openModal(registerModal);
+      if (event.target.closest('.login-trigger')) openModal(authModal);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeModals();
+    });
+    document.querySelectorAll('.role-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const role = tab.dataset.role;
+        const config = roleConfig[role];
+        document.querySelectorAll('.role-tab').forEach(item => item.classList.remove('active'));
+        tab.classList.add('active');
+        authHeader.className = `auth-header ${config.header}`;
+        loginButton.className = `auth-button ${config.button}`;
+        authCard.className = `auth-card ${config.card}`;
+        formTitle.textContent = config.title;
+        identityLabel.textContent = config.label;
+        identity.placeholder = config.placeholder;
+        identity.value = '';
+        password.value = '';
+        if (role === 'nasabah') {
+          identity.inputMode = 'numeric';
+          identity.maxLength = 16;
+          loginFooter.innerHTML = '<p class="auth-footer">Belum punya akun? <button type="button" class="auth-link register-trigger">Daftar sekarang</button></p>';
+        } else {
+          identity.inputMode = 'text';
+          identity.removeAttribute('maxlength');
+          loginFooter.innerHTML = `<p class="auth-note">${role === 'admin' ? 'Akun dibuat oleh Super Admin Kelurahan' : 'Akun dibuat oleh Tim Sistem'}</p>`;
+        }
+      });
+    });
+    document.querySelectorAll('.password-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.target
+          ? document.getElementById(button.dataset.target)
+          : password;
+        target.type = target.type === 'password' ? 'text' : 'password';
+      });
+    });
+    document.getElementById('loginForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const role = document.querySelector('.role-tab.active').dataset.role;
+      if (role === 'nasabah' && !/^\d{16}$/.test(identity.value.trim())) {
+        alert('NIK harus terdiri dari tepat 16 digit angka.');
+        identity.focus();
+        return;
+      }
+    });
+    document.getElementById('registerForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const nik = document.getElementById('registerNik');
+      if (!/^\d{16}$/.test(nik.value.trim())) {
+        alert('NIK harus terdiri dari tepat 16 digit angka.');
+        nik.focus();
+        return;
+      }
+    });
+  </script>
+</body>
+</html>
