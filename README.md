@@ -185,8 +185,3 @@ Sistem Informasi berbasis Web untuk pengelolaan bank sampah warga Surabaya Kelur
 * **Manajemen Akun Admin**:
   * Fitur reset password untuk admin RW yang lupa password.
 
-#### 5. Kelola Produk Daur Ulang Online (E-Commerce)
-* **Form Tambah Produk**:
-  * Input: `Nama Produk Daur Ulang`, `Foto Produk`, `Harga (Rp)`, `Deskripsi`, `Kontak WA Penjual`.
-* **Tabel Produk**:
-  * Edit, Hapus, dan Atur Status Stok (*Tersedia / Habis*).
