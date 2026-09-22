@@ -63,7 +63,7 @@
             Verif. Setoran
             <span id="setoranBadge" class="admin-nav-badge" hidden>0</span>
           </a>
-          <a href="verif.pencairan.html" class="admin-nav-item">
+          <a href="verif-pencairan.html" class="admin-nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="admin-nav-icon size-[18px] shrink-0 text-slate-400">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
             </svg>
@@ -98,134 +98,108 @@
         </div>
       </aside>
 
-      <!-- MAIN CONTENT -->
-        <main class="flex-1 overflow-y-auto">
+      <main class="flex-1 overflow-y-auto">
         <div class="admin-content">
-
-            <!-- HEADER -->
-            <div class="mb-6">
+          <div class="mb-6">
             <p class="admin-eyebrow">Laporan</p>
-            <h1 class="m-0 text-2xl font-bold leading-[1.3] max-[600px]:text-[21px]">
-                Rekapitulasi Transaksi
-            </h1>
-            <p class="mb-0 mt-1.5 text-sm text-slate-500">
-                Lihat rekap setoran dan pencairan berdasarkan periode yang dipilih.
-            </p>
+            <h1 class="m-0 text-2xl font-bold leading-[1.3] max-[600px]:text-[21px]">Rekapitulasi Transaksi</h1>
+            <p class="mb-0 mt-1.5 text-sm text-slate-500">Lihat rekap setoran dan pencairan berdasarkan periode yang dipilih.</p>
+          </div>
+
+          <div class="recap-filter">
+            <div class="recap-filter-field">
+              <label for="periodFilter">Periode</label>
+              <select id="periodFilter">
+                <option value="week">Minggu Ini</option>
+                <option value="month" selected>Bulan Ini</option>
+                <option value="custom">Pilih Tanggal</option>
+              </select>
             </div>
+            <div id="customDateFilter" class="recap-custom-date" hidden>
+              <div class="recap-filter-field"><label for="startDate">Tanggal Awal</label><input type="date" id="startDate"></div>
+              <span class="recap-date-separator">—</span>
+              <div class="recap-filter-field"><label for="endDate">Tanggal Akhir</label><input type="date" id="endDate"></div>
+            </div>
+          </div>
 
-            <!-- FILTER -->
-              <div class="recap-filter">
-                <div class="recap-filter-field">
-                    <label for="periodFilter">Periode</label>
-                    <select id="periodFilter">
-                    <option value="week">Minggu Ini</option>
-                    <option value="month" selected>Bulan Ini</option>
-                    <option value="custom">Pilih Tanggal</option>
-                    </select>
-                </div>
-
-                <div id="customDateFilter" class="recap-custom-date" hidden>
-                    <div class="recap-filter-field">
-                    <label for="startDate">Tanggal Awal</label>
-                    <input type="date" id="startDate">
-                    </div>
-
-                    <span class="recap-date-separator">—</span>
-
-                    <div class="recap-filter-field">
-                    <label for="endDate">Tanggal Akhir</label>
-                    <input type="date" id="endDate">
-                    </div>
-                </div>
-              </div>
-
-            <!-- SUMMARY -->
-            <section class="recap-summary">
+          <section class="recap-summary">
             <article class="recap-card recap-card-setoran">
-                <p class="recap-label">Total Setoran</p>
-                <p id="totalSetoranRecap" class="recap-value">31 transaksi</p>
+              <p class="recap-label">Total Setoran</p>
+              <p id="totalSetoranRecap" class="recap-value">31 transaksi</p>
             </article>
-
             <article class="recap-card recap-card-weight">
-                <p class="recap-label">Total Berat Masuk</p>
-                <p id="totalBeratRecap" class="recap-value">57,5 kg</p>
+              <p class="recap-label">Total Berat Masuk</p>
+              <p id="totalBeratRecap" class="recap-value">57,5 kg</p>
             </article>
-
             <article class="recap-card recap-card-withdrawal">
-                <p class="recap-label">Total Pencairan</p>
-                <p id="totalPencairanRecap" class="recap-value">Rp 120.000</p>
+              <p class="recap-label">Total Pencairan</p>
+              <p id="totalPencairanRecap" class="recap-value">Rp 120.000</p>
             </article>
-            </section>
+          </section>
 
-            <!-- TABLE -->
-            <section class="admin-table-card">
+          <section class="admin-table-card">
             <div class="overflow-x-auto">
-                <table class="admin-table recap-table">
-                <thead>
-                    <tr>
-                    <th>Tanggal</th>
-                    <th>Total Setoran</th>
-                    <th>Berat Masuk</th>
-                    <th>Nilai Masuk</th>
-                    <th>Pencairan</th>
-                    <th>Nilai Keluar</th>
-                    </tr>
-                </thead>
-
-                <tbody id="recapTableBody">
-                    <tr data-date="2026-09-18" data-setoran="8" data-weight="14.2" data-income="38500" data-pencairan="2" data-expense="45000">
-                        <td>18 Sep 2026</td>
-                        <td>8 transaksi</td>
-                        <td class="recap-weight">14,2 kg</td>
-                        <td class="recap-income">Rp 38.500</td>
-                        <td>2 transaksi</td>
-                        <td class="recap-expense">Rp 45.000</td>
-                    </tr>
-
-                    <tr data-date="2026-09-16" data-setoran="11" data-weight="21.5" data-income="61200" data-pencairan="3" data-expense="60000">
-                        <td>16 Sep 2026</td>
-                        <td>11 transaksi</td>
-                        <td class="recap-weight">21,5 kg</td>
-                        <td class="recap-income">Rp 61.200</td>
-                        <td>3 transaksi</td>
-                        <td class="recap-expense">Rp 60.000</td>
-                    </tr>
-
-                    <tr data-date="2026-09-08" data-setoran="5" data-weight="9.8" data-income="22300" data-pencairan="1" data-expense="15000">
-                        <td>08 Sep 2026</td>
-                        <td>5 transaksi</td>
-                        <td class="recap-weight">9,8 kg</td>
-                        <td class="recap-income">Rp 22.300</td>
-                        <td>1 transaksi</td>
-                        <td class="recap-expense">Rp 15.000</td>
-                    </tr>
-
-                    <tr data-date="2026-08-28" data-setoran="7" data-weight="12" data-income="31800" data-pencairan="0" data-expense="0">
-                        <td>28 Agu 2026</td>
-                        <td>7 transaksi</td>
-                        <td class="recap-weight">12,0 kg</td>
-                        <td class="recap-income">Rp 31.800</td>
-                        <td>0 transaksi</td>
-                        <td class="recap-expense">Rp 0</td>
-                    </tr>
-                </tbody>
-
-                <tfoot>
+              <table class="admin-table recap-table">
+              <thead>
                   <tr>
-                    <td>Total</td>
-                    <td id="tableTotalSetoran">0 transaksi</td>
-                    <td id="tableTotalWeight">0 kg</td>
-                    <td id="tableTotalIncome" class="recap-income">Rp 0</td>
-                    <td id="tableTotalPencairan">0 transaksi</td>
-                    <td id="tableTotalExpense" class="recap-expense">Rp 0</td>
+                  <th>Tanggal</th>
+                  <th>Total Setoran</th>
+                  <th>Berat Masuk</th>
+                  <th>Nilai Masuk</th>
+                  <th>Pencairan</th>
+                  <th>Nilai Keluar</th>
                   </tr>
-                </tfoot>
+              </thead>
+              <tbody id="recapTableBody">
+                  <tr data-date="2026-09-18" data-setoran="8" data-weight="14.2" data-income="38500" data-pencairan="2" data-expense="45000">
+                      <td>18 Sep 2026</td>
+                      <td>8 transaksi</td>
+                      <td class="recap-weight">14,2 kg</td>
+                      <td class="recap-income">Rp 38.500</td>
+                      <td>2 transaksi</td>
+                      <td class="recap-expense">Rp 45.000</td>
+                  </tr>
+                  <tr data-date="2026-09-16" data-setoran="11" data-weight="21.5" data-income="61200" data-pencairan="3" data-expense="60000">
+                      <td>16 Sep 2026</td>
+                      <td>11 transaksi</td>
+                      <td class="recap-weight">21,5 kg</td>
+                      <td class="recap-income">Rp 61.200</td>
+                      <td>3 transaksi</td>
+                      <td class="recap-expense">Rp 60.000</td>
+                  </tr>
+                  <tr data-date="2026-09-08" data-setoran="5" data-weight="9.8" data-income="22300" data-pencairan="1" data-expense="15000">
+                      <td>08 Sep 2026</td>
+                      <td>5 transaksi</td>
+                      <td class="recap-weight">9,8 kg</td>
+                      <td class="recap-income">Rp 22.300</td>
+                      <td>1 transaksi</td>
+                      <td class="recap-expense">Rp 15.000</td>
+                  </tr>
+                  <tr data-date="2026-08-28" data-setoran="7" data-weight="12" data-income="31800" data-pencairan="0" data-expense="0">
+                      <td>28 Agu 2026</td>
+                      <td>7 transaksi</td>
+                      <td class="recap-weight">12,0 kg</td>
+                      <td class="recap-income">Rp 31.800</td>
+                      <td>0 transaksi</td>
+                      <td class="recap-expense">Rp 0</td>
+                  </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Total</td>
+                  <td id="tableTotalSetoran">0 transaksi</td>
+                  <td id="tableTotalWeight">0 kg</td>
+                  <td id="tableTotalIncome" class="recap-income">Rp 0</td>
+                  <td id="tableTotalPencairan">0 transaksi</td>
+                  <td id="tableTotalExpense" class="recap-expense">Rp 0</td>
+                </tr>
+              </tfoot>
               </table>
             </div>
-            </section>
-            <p id="recapEmpty" class="recap-empty" hidden>Belum ada transaksi pada periode yang dipilih.</p>
+          </section>
+          <p id="recapEmpty" class="recap-empty" hidden>Belum ada transaksi pada periode yang dipilih.</p>
         </div>
-        </main>
+      </main>
     </div>
   </div>
 
