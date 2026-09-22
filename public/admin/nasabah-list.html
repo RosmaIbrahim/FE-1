@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Nasabah | SiBas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="h-screen overflow-hidden bg-slate-50 font-['Plus_Jakarta_Sans'] text-slate-900">
+  <div class="flex h-full flex-col">
+    <header class="admin-topbar">
+      <a href="#" class="flex items-center gap-2.5">
+        <img src="../assets/images/logo tulisan.png" alt="Logo SiBas" class="h-8 w-auto object-contain">
+        <span class="text-[15px] font-extrabold">SiBas</span>
+      </a>
+
+      <div class="ml-auto flex items-center gap-3">
+        <span class="admin-chip">
+          <span class="size-1.5 rounded-full bg-amber-600"></span>
+          Admin 01
+        </span>
+
+        <button id="menuButton" type="button" class="admin-menu-button" aria-label="Buka menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="flex min-h-0 flex-1">
+      <div id="sidebarOverlay" class="admin-overlay"></div>
+
+      <aside id="sidebar" class="admin-sidebar">
+        <div class="border-b border-slate-100 px-4 py-5">
+          <p class="m-0 text-[15px] font-bold">Budi Santoso</p>
+          <p class="mb-0 mt-[3px] text-[13px] font-medium text-slate-400">Admin 01</p>
+          <div class="admin-role">
+            <span class="size-1.5 rounded-full bg-amber-600"></span>
+            Admin Bank Sampah Kel. Jambangan
+          </div>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto p-3">
+          <a href="dashboard.html" class="admin-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="admin-nav-icon size-[18px] shrink-0 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
+            </svg>
+            Dashboard
+          </a>
+          <a href="#" class="admin-nav-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="admin-nav-icon size-[18px] shrink-0 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/>
+            </svg>
+            Nasabah
+          </a>
+          <a href="verif-setoran.html" class="admin-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="admin-nav-icon size-[18px] shrink-0 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0 1 18 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3 1.5 1.5 3-3.75"/>
+            </svg>
+            Verif. Setoran
+            <span id="setoranBadge" class="admin-nav-badge" hidden>0</span>
+          </a>
+          <a href="verif-pencairan.html" class="admin-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="admin-nav-icon size-[18px] shrink-0 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            </svg>
+            Verif. Pencairan
+            <span id="pencairanBadge" class="admin-nav-badge" hidden>0</span>
+          </a>
+          <a href="kelola-harga.html" class="admin-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="admin-nav-icon size-[18px] shrink-0 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"/>
+            </svg>
+            Harga Sampah
+          </a>
+          <a href="kelola-jadwal.html" class="admin-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="admin-nav-icon size-[18px] shrink-0 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"/>
+            </svg>
+            Jadwal
+          </a>
+          <a href="rekapitulasi.html" class="admin-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="admin-nav-icon size-[18px] shrink-0 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625Z"/>
+            </svg>
+            Rekapitulasi
+          </a>
+        </nav>
+
+        <div class="border-t border-slate-100 p-3">
+          <button type="button" class="admin-logout">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-[18px] shrink-0 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/>
+            </svg>
+            Keluar
+          </button>
+        </div>
+      </aside>
+
+      <main class="flex-1 overflow-y-auto">
+        <div class="admin-content">
+
+          <div class="mb-6">
+            <p class="mb-[5px] mt-0 text-xs font-extrabold uppercase tracking-[.1em] text-amber-600">
+              Manajemen
+            </p>
+            <h1 class="m-0 text-2xl font-bold leading-[1.3] max-[600px]:text-[21px]">
+              Daftar Nasabah
+            </h1>
+            <p class="mb-0 mt-1.5 text-sm text-slate-500">
+              Seluruh nasabah terdaftar di Bank Sampah Kelurahan Jambangan.
+            </p>
+          </div>
+
+          <div class="mb-5 flex items-center gap-3 max-[600px]:items-stretch">
+            <div class="nasabah-search">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-[18px] shrink-0 text-slate-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
+              <input id="searchNasabah" type="search" placeholder="Cari nama, NIK, RT/RW, atau No. WA" autocomplete="off">
+            </div>
+            <span id="nasabahCount" class="shrink-0 text-xs text-slate-500">2 nasabah</span>
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="overflow-x-auto">
+              <table class="nasabah-table">
+                <thead>
+                  <tr>
+                    <th>NIK</th>
+                    <th>Nama Nasabah</th>
+                    <th>RT/RW</th>
+                    <th>No. WA</th>
+                    <th>Saldo Tabungan</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+
+                <tbody id="nasabahTableBody">
+                  <tr>
+                    <td class="font-mono text-[15px] text-slate-500">3578010001000001</td>
+                    <td class="font-semibold text-slate-900">Budi Santoso</td>
+                    <td>RT 003 / RW 01</td>
+                    <td>081234567890</td>
+                    <td class="font-bold text-emerald-700">Rp 35.650</td>
+                    <td><button type="button" class="nasabah-detail-trigger font-semibold text-amber-600 hover:underline" data-nasabah="budi">Lihat Detail</button></td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono text-[15px] text-slate-500">3578010002000002</td>
+                    <td class="font-semibold text-slate-900">Siti Rahayu</td>
+                    <td>RT 002 / RW 01</td>
+                    <td>082233445566</td>
+                    <td class="font-bold text-emerald-700">Rp 12.300</td>
+                    <td><button type="button" class="nasabah-detail-trigger font-semibold text-amber-600 hover:underline" data-nasabah="siti">Lihat Detail</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="nasabahEmpty" class="mt-4 hidden rounded-xl border border-slate-200 bg-white p-5 text-center text-sm text-slate-500">Nasabah tidak ditemukan.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <div id="nasabahDetailModal" class="nasabah-detail-modal" aria-hidden="true">
+    <div id="nasabahDetailBackdrop" class="absolute inset-0 bg-slate-900/60"></div>
+    <section class="nasabah-detail-card" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <header class="sticky top-0 z-10 flex items-center justify-between bg-amber-600 px-5 py-3.5 text-white">
+        <h2 id="detailTitle" class="m-0 text-sm font-bold">Detail Nasabah</h2>
+        <button id="closeNasabahDetail" type="button" class="grid size-7 cursor-pointer place-items-center rounded-md border-0 bg-transparent text-xl text-white hover:bg-white/10" aria-label="Tutup detail"> &times;</button>
+      </header>
+
+      <div class="p-5">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-5">
+            <img id="detailPhoto" src="" alt="Foto profil nasabah" class="size-[58px] shrink-0 rounded-full object-cover">
+            <div class="min-w-0">
+              <p id="detailName" class="m-0 text-sm font-bold text-slate-900">Budi Santoso</p>
+                <div class="mt-1.5 space-y-0.5">
+                  <p id="detailNik" class="m-0 text-xs text-slate-500">3578010001000001</p>
+                  <p id="detailRtRw" class="m-0 text-xs text-slate-500">RT 003 / RW 01</p>
+                  <p id="detailPhone" class="m-0 text-xs text-slate-500">081234567890</p>
+                </div>
+            </div>
+            <div class="ml-auto shrink-0 text-right">
+            <p class="m-0 text-xs text-slate-500">Saldo</p>
+            <p id="detailSaldo" class="mb-0 mt-0.5 text-base font-extrabold text-emerald-700">Rp 35.650</p>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <h3 class="mb-2.5 text-[15px] font-bold text-slate-900">Riwayat Setoran</h3>
+            <div class="overflow-hidden rounded-xl border border-slate-200">
+            <div class="overflow-x-auto">
+                <table class="detail-table">
+                <thead>
+                    <tr>
+                    <th>Tanggal</th>
+                    <th>Jenis</th>
+                    <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="setoranDetailBody"></tbody>
+                </table>
+            </div>
+            </div>
+            <div id="setoranPagination" class="detail-pagination"></div>
+        </div>
+
+        <div class="mt-5">
+            <h3 class="mb-2.5 text-[15px] font-bold text-slate-900">Mutasi Saldo</h3>
+            <div class="overflow-hidden rounded-xl border border-slate-200">
+            <div class="overflow-x-auto">
+                <table class="detail-table">
+                <thead>
+                    <tr>
+                    <th>Tanggal</th>
+                    <th>Keterangan</th>
+                    <th>Nominal</th>
+                    </tr>
+                </thead>
+                <tbody id="mutasiDetailBody"></tbody>
+                </table>
+            </div>
+            </div>
+            <div id="mutasiPagination" class="detail-pagination"></div>
+        </div>
+        </div>
+    </section>
+    </div>
+  <script src="../../src/js/admin/nasabah-list.js"></script>
+</body>
+</html>
