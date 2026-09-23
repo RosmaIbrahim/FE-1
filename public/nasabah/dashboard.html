@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Nasabah - Bank Sampah Kelurahan Jambangan</title>
+    <link rel="icon" href="../assets/images/logoo.png" type="image/png" />
+    <!-- Panggil CSS Hasil Build/Compile Tailwind -->
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- TOP BAR (Fixed Height) -->
+    <header
+      class="h-14 bg-white border-b border-slate-200 px-3 sm:px-4 flex items-center justify-between shrink-0 z-10"
+    >
+      <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
+        <!-- Tombol menu (hanya tampil di hp / tablet) -->
+        <button
+          id="btnMenu"
+          type="button"
+          aria-label="Buka menu"
+          aria-controls="sidebar"
+          aria-expanded="false"
+          class="lg:hidden p-1.5 -ml-1 rounded-lg text-slate-600 hover:bg-slate-100 shrink-0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+
+        <div
+          class="w-7 h-7 bg-emerald-700 text-white font-extrabold rounded-lg flex items-center justify-center text-xs shrink-0"
+        >
+          BS
+        </div>
+        <h1 class="font-bold text-sm text-slate-900 truncate">
+          Bank Sampah Kelurahan Jambangan
+        </h1>
+      </div>
+
+      <div class="flex items-center space-x-3 shrink-0 ml-2">
+        <span
+          class="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wide border bg-emerald-50 text-emerald-700 border-emerald-200"
+        >
+          Nasabah
+        </span>
+        <div
+          class="w-8 h-8 bg-emerald-100 text-emerald-700 font-bold rounded-full flex items-center justify-center text-xs"
+        >
+          BS
+        </div>
+      </div>
+    </header>
+
+    <!-- APP SHELL WRAPPER -->
+    <div class="flex flex-1 overflow-hidden relative">
+      <!-- Overlay gelap (hanya untuk hp / tablet saat sidebar terbuka) -->
+      <div
+        id="sidebarOverlay"
+        class="hidden lg:hidden fixed inset-0 top-14 bg-slate-900/40 z-30"
+      ></div>
+
+      <!-- SIDEBAR
+           - hp/tablet : drawer yang geser dari kiri
+           - laptop    : tampil tetap di samping -->
+      <aside
+        id="sidebar"
+        class="fixed top-14 bottom-0 left-0 z-40 w-64 max-w-[85vw] -translate-x-full transition-transform duration-200 ease-in-out lg:static lg:translate-x-0 lg:w-60 lg:max-w-none lg:h-full bg-white border-r border-slate-200 flex flex-col justify-between shrink-0 overflow-y-auto p-4"
+      >
+        <div class="space-y-4">
+          <!-- User Profile -->
+          <div
+            class="p-3 bg-slate-50 border border-slate-200 rounded-2xl flex items-center space-x-3"
+          >
+            <div
+              class="w-10 h-10 bg-emerald-100 text-emerald-700 font-bold rounded-xl flex items-center justify-center text-sm shrink-0"
+            >
+              BS
+            </div>
+            <div class="overflow-hidden">
+              <h2 class="font-bold text-xs text-slate-900 truncate">
+                Budi Santoso
+              </h2>
+              <p class="text-[10px] text-slate-500 truncate">
+                NIK: 3578...8901
+              </p>
+            </div>
+          </div>
+
+          <!-- Info Badge (disembunyikan otomatis oleh profile-check.js jika profil lengkap) -->
+          <div
+            data-profil-warning
+            class="bg-amber-50 border border-amber-200 text-amber-700 text-xs p-2.5 rounded-2xl flex items-center space-x-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-4 text-amber-600 shrink-0"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+              />
+            </svg>
+            <span class="font-medium text-[11px] leading-tight"
+              >Profil belum lengkap</span
+            >
+          </div>
+
+          <!-- Navigasi Utama -->
+          <nav class="space-y-1">
+            <a href="dashboard.html" class="nav-item-active">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 text-emerald-600 shrink-0"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"
+                />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+
+            <a href="profile.html" class="nav-item-inactive">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 text-slate-400 shrink-0"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                />
+              </svg>
+              <span>Profil</span>
+            </a>
+
+            <a href="setoran.html" class="nav-item-inactive">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 text-slate-400 shrink-0"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                />
+              </svg>
+              <span>Setoran</span>
+            </a>
+
+            <a href="tabungan.html" class="nav-item-inactive">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 text-slate-400 shrink-0"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v12m-3-6h6"
+                />
+              </svg>
+              <span>Tabungan</span>
+            </a>
+
+            <a href="pencairan.html" class="nav-item-inactive">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 text-slate-400 shrink-0"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5h16.5a1.5 1.5 0 0 1 1.5 1.5v9.75a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5V6a1.5 1.5 0 0 1 1.5-1.5Zm13.5 6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM6 7.5h1.5s.75 0 .75.75-.75.75-.75.75H6s-.75 0-.75-.75.75-.75.75-.75Z"
+                />
+              </svg>
+              <span>Pencairan</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Tombol Keluar -->
+        <a
+          href="../login.html"
+          class="flex items-center space-x-3 px-3 py-2 text-slate-500 hover:bg-red-50 hover:text-red-600 font-semibold rounded-lg text-xs transition mt-6"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5 shrink-0"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12"
+            />
+          </svg>
+          <span>Keluar</span>
+        </a>
+      </aside>
+
+      <!-- KONTEN UTAMA (Scrollable Area) -->
+      <main class="flex-1 min-w-0 overflow-y-auto p-3 sm:p-4 md:p-6">
+        <div class="max-w-6xl mx-auto space-y-6 sm:space-y-8">
+          <!-- ============ BANNER PROFIL ============ -->
+          <!-- Disembunyikan otomatis oleh profile-check.js jika profil lengkap -->
+          <div
+            data-profil-warning
+            class="bg-amber-50 border border-amber-200 rounded-2xl p-4 md:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm"
+          >
+            <div class="flex items-start space-x-3">
+              <div class="p-2 bg-amber-100 text-amber-700 rounded-lg shrink-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.008v.008H12v-.008Z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-slate-900">
+                  Profil belum dilengkapi
+                </h3>
+                <p class="text-xs text-slate-600 leading-relaxed mt-0.5">
+                  Sebelum melanjutkan ke layanan, harap melengkapi profile Anda
+                  terlebih dahulu.
+                </p>
+              </div>
+            </div>
+            <a
+              href="profile.html"
+              class="btn-warning inline-flex items-center justify-center shrink-0 w-full sm:w-auto"
+            >
+              Lengkapi Profile
+            </a>
+          </div>
+
+          <!-- ============ 1. LAYANAN SETORAN ============ -->
+          <!-- Logika: setor-sampah.js -->
+          <section id="layananSetoran">
+            <div class="mb-4">
+              <span
+                class="block font-bold text-xs uppercase tracking-widest text-emerald-700 mb-1"
+                >Layanan Setoran</span
+              >
+              <h2 class="font-bold text-lg sm:text-xl text-slate-900">
+                Form Setor Sampah
+              </h2>
+            </div>
+
+            <!-- Kartu form -->
+            <div
+              id="formCard"
+              class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 md:p-6 shadow-sm"
+            >
+              <form id="formSetor" class="space-y-5 sm:space-y-6" novalidate>
+                <!-- Identitas (otomatis, tidak bisa diubah) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label class="form-label">Nama Lengkap</label>
+                    <input
+                      type="text"
+                      value="Budi Santoso"
+                      disabled
+                      class="form-input-disabled"
+                    />
+                  </div>
+                  <div>
+                    <label class="form-label">NIK</label>
+                    <input
+                      type="text"
+                      value="3578012345678901"
+                      disabled
+                      class="form-input-disabled"
+                    />
+                  </div>
+                  <div>
+                    <label class="form-label">No. Telepon</label>
+                    <input
+                      type="text"
+                      value="081234567890"
+                      disabled
+                      class="form-input-disabled"
+                    />
+                  </div>
+                </div>
+
+                <!-- Input utama -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  <!-- Kolom kiri -->
+                  <div class="space-y-4">
+                    <div>
+                      <label for="bankSampah" class="form-label"
+                        >Pilih Bank Sampah Tujuan</label
+                      >
+                      <select
+                        id="bankSampah"
+                        name="bank_sampah"
+                        class="form-input"
+                      >
+                        <option value="">— Pilih Bank Sampah —</option>
+                        <option value="jambangan-utama">
+                          Bank Sampah Jambangan Utama
+                        </option>
+                        <option value="jambangan-rw02">
+                          Bank Sampah RW 02
+                        </option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label for="kategori" class="form-label"
+                        >Kategori Sampah</label
+                      >
+                      <select id="kategori" name="kategori" class="form-input">
+                        <option value="">— Pilih Kategori —</option>
+                        <option value="plastik">Plastik</option>
+                        <option value="kertas">Kertas &amp; Kardus</option>
+                        <option value="logam">Logam / Besi</option>
+                        <option value="minyak">Minyak Jelantah</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label for="jenis" class="form-label">Jenis Sampah</label>
+                      <!-- Pilihan diisi oleh setor-sampah.js sesuai kategori -->
+                      <select
+                        id="jenis"
+                        name="jenis"
+                        disabled
+                        class="form-input disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed"
+                      >
+                        <option value="">— Pilih kategori dulu —</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Kolom kanan -->
+                  <div class="space-y-4">
+                    <div>
+                      <label for="tanggal" class="form-label"
+                        >Tanggal Pengajuan Setor</label
+                      >
+                      <input
+                        type="date"
+                        id="tanggal"
+                        name="tanggal"
+                        class="form-input"
+                      />
+                    </div>
+
+                    <div>
+                      <label for="kondisi" class="form-label"
+                        >Kondisi Sampah</label
+                      >
+                      <select id="kondisi" name="kondisi" class="form-input">
+                        <option value="">— Pilih Kondisi —</option>
+                        <option value="bersih">Bersih &amp; Kering</option>
+                        <option value="campur">Bercampur / Basah</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <span class="form-label">
+                        Foto Bukti Sampah
+                        <span class="text-slate-400 font-normal"
+                          >(opsional)</span
+                        >
+                      </span>
+
+                      <label id="uploadLabel" class="upload-dropzone">
+                        <input
+                          type="file"
+                          id="fotoBukti"
+                          name="foto_bukti"
+                          accept="image/*"
+                          class="hidden"
+                        />
+                        <div
+                          id="uploadPlaceholder"
+                          class="flex flex-col items-center text-center"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 text-slate-400 mb-1"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0z"
+                            />
+                          </svg>
+                          <span class="text-xs text-slate-500 font-medium"
+                            >Klik untuk unggah foto</span
+                          >
+                        </div>
+                        <img
+                          id="imagePreview"
+                          src=""
+                          alt="Pratinjau foto bukti sampah"
+                          class="hidden absolute inset-0 w-full h-full object-cover rounded-xl"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Catatan -->
+                <div>
+                  <label for="catatan" class="form-label"
+                    >Catatan Tambahan
+                    <span class="text-slate-400 font-normal"
+                      >(opsional)</span
+                    ></label
+                  >
+                  <textarea
+                    id="catatan"
+                    name="catatan"
+                    rows="3"
+                    placeholder="Contoh: sampah sudah dipress, terdapat campuran beberapa jenis..."
+                    class="form-input resize-none"
+                  ></textarea>
+                </div>
+
+                <!-- Pesan error (diisi setor-sampah.js) -->
+                <p
+                  id="formError"
+                  role="alert"
+                  class="hidden text-xs font-medium text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2"
+                ></p>
+
+                <!-- Footer form: bertumpuk di hp, sejajar di layar sm ke atas -->
+                <div
+                  class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                >
+                  <div
+                    class="inline-flex items-center space-x-2 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium text-slate-600"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-amber-400 shrink-0"
+                    ></span>
+                    <span>Status awal: Menunggu Diserahkan</span>
+                  </div>
+                  <button type="submit" class="btn-primary w-full sm:w-auto">
+                    Kirim Pengajuan
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Kartu sukses (tampil setelah pengajuan terkirim) -->
+            <div
+              id="successCard"
+              class="hidden bg-emerald-50/60 border border-emerald-200 rounded-2xl px-4 sm:px-6 py-8 text-center"
+            >
+              <div
+                class="mx-auto w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-9"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-bold text-sm text-emerald-800">
+                Pengajuan Berhasil Dikirim!
+              </h3>
+              <p class="text-xs text-emerald-800 mt-1">
+                Status: <strong>Menunggu Diserahkan</strong>. Bawa sampah ke
+                bank sampah sesuai jadwal.
+              </p>
+              <button
+                type="button"
+                id="btnPengajuanBaru"
+                class="mt-3 text-xs font-semibold text-emerald-800 underline underline-offset-2 cursor-pointer hover:text-emerald-900"
+              >
+                Buat pengajuan baru
+              </button>
+            </div>
+          </section>
+
+          <!-- ============ 2. JADWAL OPERASIONAL ============ -->
+          <!-- Logika: jadwal-harga.js -->
+          <section id="jadwalOperasional">
+            <div
+              class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4"
+            >
+              <div>
+                <span
+                  class="block font-bold text-xs uppercase tracking-widest text-emerald-700 mb-1"
+                  >Jadwal Operasional</span
+                >
+                <h2 class="font-bold text-lg sm:text-xl text-slate-900">
+                  Jadwal Bank Sampah
+                </h2>
+              </div>
+
+              <div class="flex items-center space-x-2">
+                <label for="filterRw" class="text-xs font-medium text-slate-500"
+                  >Filter RW:</label
+                >
+                <select
+                  id="filterRw"
+                  class="border border-slate-200 rounded-xl py-1.5 pl-3 pr-8 text-xs bg-white text-slate-700 focus:ring-2 focus:ring-emerald-700/20 focus:border-emerald-700 focus:outline-none"
+                >
+                  <option value="semua">Semua</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tabel bisa digeser ke samping di layar kecil -->
+            <div
+              class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden"
+            >
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm min-w-160">
+                  <thead class="bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th
+                        class="px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600"
+                      >
+                        Hari
+                      </th>
+                      <th
+                        class="px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600"
+                      >
+                        Tanggal
+                      </th>
+                      <th
+                        class="px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600"
+                      >
+                        Jam Buka
+                      </th>
+                      <th
+                        class="px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600"
+                      >
+                        Jam Tutup
+                      </th>
+                      <th
+                        class="px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600"
+                      >
+                        Wilayah RW
+                      </th>
+                    </tr>
+                  </thead>
+                  <!-- Diisi oleh jadwal-harga.js -->
+                  <tbody
+                    id="jadwalBody"
+                    class="divide-y divide-slate-100"
+                  ></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============ 3. INFO HARGA ============ -->
+          <!-- Logika: jadwal-harga.js -->
+          <section id="infoHarga">
+            <div class="mb-4">
+              <span
+                class="block font-bold text-xs uppercase tracking-widest text-emerald-700 mb-1"
+                >Info Harga</span
+              >
+              <h2 class="font-bold text-lg sm:text-xl text-slate-900">
+                Daftar Harga Sampah Harian
+              </h2>
+              <p id="hargaKeterangan" class="text-xs text-slate-500 mt-1">
+                Harga dapat berubah sewaktu-waktu
+              </p>
+            </div>
+
+            <div
+              class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden"
+            >
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm min-w-160">
+                  <thead class="bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th
+                        class="px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600"
+                      >
+                        Tanggal
+                      </th>
+                      <th
+                        class="px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600"
+                      >
+                        Jenis Sampah
+                      </th>
+                      <th
+                        class="px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600"
+                      >
+                        Kondisi
+                      </th>
+                      <th
+                        class="px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600"
+                      >
+                        Harga / KG
+                      </th>
+                    </tr>
+                  </thead>
+                  <!-- Diisi oleh jadwal-harga.js -->
+                  <tbody
+                    id="hargaBody"
+                    class="divide-y divide-slate-100"
+                  ></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+  
+    <script src="../../src/js/nasabah/profile-check.js"></script>
+    <script src="../../src/js/nasabah/setor-sampah.js"></script>
+    <script src="../../src/js/nasabah/jadwal-harga.js"></script>
+    <script src="../../src/js/nasabah/dashboard.js"></script>
+  </body>
+</html>
