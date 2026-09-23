@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+@import "./main2.css";
+
+/* =========================================================
+   1. PENGATURAN GLOBAL
+   ========================================================= */
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply bg-slate-50 text-slate-900 antialiased h-screen flex flex-col overflow-hidden;
+  }
+}
+
+/* =========================================================
+   2. TOMBOL
+   ========================================================= */
+@utility btn-primary {
+  @apply bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm rounded-xl px-6 py-2.5 transition transform hover:-translate-y-0.5 active:translate-y-0 shadow-sm cursor-pointer inline-flex items-center justify-center;
+}
+
+@utility btn-secondary {
+  @apply bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm border border-slate-200 rounded-xl px-5 py-2.5 transition cursor-pointer inline-flex items-center justify-center;
+}
+
+@utility btn-warning {
+  @apply bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm rounded-xl px-5 py-2 transition transform hover:-translate-y-0.5 active:translate-y-0 text-center shrink-0 shadow-sm;
+}
+
+/* =========================================================
+   3. FORM
+   ========================================================= */
+@utility form-input {
+  @apply w-full border border-slate-200 rounded-xl py-2.5 px-3.5 text-sm bg-white text-slate-800 focus:ring-2 focus:ring-emerald-700/20 focus:border-emerald-700 focus:outline-none transition shadow-xs placeholder:text-slate-300;
+}
+
+@utility form-input-disabled {
+  @apply w-full border border-slate-200/60 bg-slate-100/70 text-slate-400 rounded-xl py-2.5 px-3.5 text-sm cursor-not-allowed select-none;
+}
+
+@utility form-label {
+  @apply block text-xs font-bold text-slate-700 mb-1.5;
+}
+
+@utility upload-dropzone {
+  @apply w-full h-30 border-2 border-dashed border-slate-300 bg-white hover:bg-slate-50 rounded-xl p-4 flex flex-col items-center justify-center cursor-pointer transition relative overflow-hidden;
+}
+
+/* =========================================================
+   4. NAVIGASI SIDEBAR
+   ========================================================= */
+@utility nav-item-active {
+  @apply flex items-center space-x-3 px-3.5 py-2.5 bg-emerald-50 text-emerald-700 font-bold rounded-xl text-xs transition;
+}
+
+@utility nav-item-inactive {
+  @apply flex items-center space-x-3 px-3.5 py-2.5 text-slate-500 hover:bg-slate-100 hover:text-slate-900 font-semibold rounded-xl text-xs transition;
+}
+
+/* =========================================================
+   5. JUDUL HALAMAN & KARTU  (BARU)
+   ========================================================= */
+
+/* Tulisan kecil hijau di atas judul, mis. "RIWAYAT" */
+@utility eyebrow {
+  @apply block font-bold text-xs uppercase tracking-widest text-emerald-700 mb-1;
+}
+
+@utility page-title {
+  @apply font-bold text-lg sm:text-xl text-slate-900;
+}
+
+@utility card {
+  @apply bg-white border border-slate-200 rounded-2xl shadow-sm;
+}
+
+/* =========================================================
+   6. TABEL  (BARU)
+   Pakai: <div class="table-card"><div class="overflow-x-auto"><table class="w-full text-sm min-w-180">
+   ========================================================= */
+@utility table-card {
+  @apply bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden;
+}
+
+@utility table-th {
+  @apply px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-600 whitespace-nowrap;
+}
+
+@utility table-td {
+  @apply px-5 py-3.5 text-slate-600 whitespace-nowrap;
+}
+
+@utility table-td-strong {
+  @apply px-5 py-3.5 font-bold text-slate-900 whitespace-nowrap;
+}
+
+/* Tombol teks di dalam tabel, mis. "Lihat Detail" */
+@utility link-action {
+  @apply text-xs font-semibold text-emerald-700 hover:text-emerald-800 hover:underline underline-offset-2 cursor-pointer whitespace-nowrap transition;
+}
+
+/* =========================================================
+   7. BADGE STATUS  (BARU)
+   ========================================================= */
+@utility badge-success {
+  @apply inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide border bg-emerald-50 text-emerald-700 border-emerald-200 whitespace-nowrap;
+}
+
+@utility badge-warning {
+  @apply inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide border bg-amber-50 text-amber-700 border-amber-200 whitespace-nowrap;
+}
+
+@utility badge-danger {
+  @apply inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide border bg-red-50 text-red-700 border-red-200 whitespace-nowrap;
+}
+
+@utility badge-neutral {
+  @apply inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide border bg-slate-100 text-slate-500 border-slate-200 whitespace-nowrap;
+}
+
+/* =========================================================
+   8. JENDELA DETAIL / MODAL  (BARU)
+   Tampil/sembunyi lewat atribut `hidden` (el.hidden = true/false)
+   ========================================================= */
+@utility modal-backdrop {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50;
+}
+
+@utility modal-panel {
+  @apply bg-white rounded-2xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto;
+}
+
+@utility modal-close {
+  @apply p-1.5 -mr-1.5 -mt-1 rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition cursor-pointer shrink-0;
+}
+
+/* Baris rincian: label di kiri, nilai di kanan */
+@utility detail-row {
+  @apply flex items-start justify-between gap-4 py-3 border-b border-slate-100 last:border-b-0 text-xs;
+}
+
+@utility detail-label {
+  @apply text-slate-500 shrink-0;
+}
+
+@utility detail-value {
+  @apply font-semibold text-slate-900 text-right;
+}
+
+/* =========================================================
+   9. KHUSUS PENCAIRAN
+   ========================================================= */
+@utility notice-info {
+  @apply bg-blue-50 border border-blue-200 rounded-xl px-4 py-3 flex gap-3 items-start text-blue-800 text-xs leading-relaxed;
+}
+
+@utility flow-hint {
+  @apply flex items-center gap-2 text-[10px] text-slate-400 font-semibold;
+}
+
+/* =========================================================
+   SUPER ADMIN — LAYOUT & KOMPONEN (tema biru)
+   ========================================================= */
+
+/* ---- Header ---- */
+@utility sa-header {
+  @apply h-14 bg-white border-b border-slate-200 px-3 sm:px-4 flex items-center gap-3 shrink-0 z-20;
+}
+@utility sa-menu-toggle {
+  @apply lg:hidden p-1.5 -ml-1 rounded-lg text-slate-600 hover:bg-slate-100 shrink-0 cursor-pointer;
+}
+@utility sa-brand {
+  @apply flex items-center gap-2 min-w-0;
+}
+@utility sa-brand-logo {
+  @apply w-7 h-7 bg-blue-800 text-white font-extrabold rounded-lg flex items-center justify-center text-[10px] shrink-0;
+}
+@utility sa-brand-title {
+  @apply hidden sm:block font-bold text-sm text-slate-900 truncate;
+}
+@utility sa-header-right {
+  @apply flex items-center gap-2 shrink-0 ml-auto;
+}
+@utility sa-role-badge {
+  @apply hidden sm:inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-lg text-xs font-semibold text-blue-800;
+}
+@utility sa-role-dot {
+  @apply w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0;
+}
+@utility sa-avatar {
+  @apply w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-800 font-extrabold text-xs shrink-0;
+}
+
+/* ---- Shell & sidebar ---- */
+@utility sa-shell {
+  @apply flex flex-1 overflow-hidden relative;
+}
+@utility sa-overlay {
+  @apply fixed inset-0 top-14 bg-slate-900/40 z-30;
+}
+@utility sa-sidebar {
+  @apply fixed top-14 bottom-0 left-0 z-40 w-64 max-w-[85vw] transition-transform duration-200 ease-in-out lg:static lg:w-60 lg:max-w-none lg:h-full bg-white border-r border-slate-200 flex flex-col justify-between shrink-0 overflow-y-auto;
+}
+@utility sa-sidebar-top {
+  @apply p-5 border-b border-slate-100;
+}
+@utility sa-sidebar-user {
+  @apply flex items-center gap-3;
+}
+@utility sa-sidebar-avatar {
+  @apply w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-800 font-extrabold text-sm shrink-0;
+}
+@utility sa-sidebar-name {
+  @apply font-bold text-sm text-slate-900 truncate;
+}
+@utility sa-sidebar-sub {
+  @apply text-xs text-slate-500 truncate;
+}
+@utility sa-sidebar-badge {
+  @apply mt-3 flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg px-2.5 py-1.5;
+}
+@utility sa-sidebar-badge-dot {
+  @apply w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0;
+}
+@utility sa-sidebar-badge-text {
+  @apply text-[10px] font-semibold text-blue-800;
+}
+@utility sa-nav {
+  @apply flex-1 p-3 space-y-0.5 overflow-y-auto;
+}
+@utility sa-nav-item {
+  @apply w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition text-left cursor-pointer;
+}
+@utility sa-nav-item-active {
+  @apply w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-bold bg-blue-50 text-blue-800 transition text-left cursor-pointer;
+}
+@utility sa-nav-icon {
+  @apply w-5 h-5 text-slate-400 shrink-0;
+}
+@utility sa-nav-icon-active {
+  @apply w-5 h-5 text-blue-700 shrink-0;
+}
+@utility sa-logout-wrap {
+  @apply p-3 border-t border-slate-100;
+}
+@utility sa-logout-btn {
+  @apply w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold text-slate-500 hover:bg-red-50 hover:text-red-600 transition cursor-pointer;
+}
+
+/* ---- Konten utama ---- */
+@utility sa-main {
+  @apply flex-1 min-w-0 overflow-y-auto p-3 sm:p-4 md:p-6;
+}
+@utility sa-page-eyebrow {
+  @apply text-xs text-blue-700 font-bold uppercase tracking-widest mb-0.5;
+}
+@utility sa-page-title {
+  @apply text-slate-900 font-bold text-lg sm:text-xl;
+}
+@utility sa-page-desc {
+  @apply text-slate-500 text-xs mt-0.5;
+}
+
+/* ---- Kartu statistik ---- */
+@utility sa-stat-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4;
+}
+@utility sa-stat-card {
+  @apply rounded-2xl p-5 border shadow-sm;
+}
+@utility sa-stat-blue { @apply bg-blue-50 border-blue-200; }
+@utility sa-stat-emerald { @apply bg-emerald-50 border-emerald-200; }
+@utility sa-stat-amber { @apply bg-amber-50 border-amber-200; }
+@utility sa-stat-label-blue { @apply text-xs font-semibold mb-1 text-blue-700; }
+@utility sa-stat-label-emerald { @apply text-xs font-semibold mb-1 text-emerald-700; }
+@utility sa-stat-label-amber { @apply text-xs font-semibold mb-1 text-amber-600; }
+@utility sa-stat-value-blue { @apply font-extrabold text-2xl text-blue-900; }
+@utility sa-stat-value-emerald { @apply font-extrabold text-2xl text-emerald-800; }
+@utility sa-stat-value-amber { @apply font-extrabold text-2xl text-amber-700; }
+@utility sa-stat-sub {
+  @apply text-slate-400 text-xs mt-1;
+}
+
+/* ---- Kartu & tabel ---- */
+@utility sa-card {
+  @apply bg-white border border-slate-200 rounded-2xl shadow-sm p-4 sm:p-5 md:p-6;
+}
+@utility sa-table-card {
+  @apply bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden;
+}
+@utility sa-table {
+  @apply w-full text-sm min-w-[640px];
+}
+@utility sa-thead {
+  @apply bg-slate-100;
+}
+@utility sa-th {
+  @apply px-4 py-3 text-left text-xs font-bold text-slate-700 uppercase tracking-wider whitespace-nowrap;
+}
+@utility sa-tr { @apply border-t border-slate-100; }
+@utility sa-tr-alt { @apply border-t border-slate-100 bg-slate-50/50; }
+@utility sa-td { @apply px-4 py-3 text-slate-600 text-xs; }
+@utility sa-td-strong { @apply px-4 py-3 font-semibold text-slate-900 text-xs; }
+@utility sa-td-rw { @apply px-4 py-3 font-bold text-blue-800 text-xs; }
+@utility sa-td-money { @apply px-4 py-3 font-bold text-emerald-700 text-xs; }
+@utility sa-td-mono { @apply px-4 py-3 text-slate-500 text-xs font-mono; }
+
+/* ---- Badge & tombol ---- */
+@utility sa-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wide border;
+}
+@utility sa-badge-active { @apply bg-emerald-50 text-emerald-700 border-emerald-200 cursor-pointer; }
+@utility sa-badge-inactive { @apply bg-slate-100 text-slate-500 border-slate-200 cursor-pointer; }
+@utility sa-btn-primary {
+  @apply px-5 py-2 bg-blue-800 hover:bg-blue-900 text-white text-sm font-bold rounded-lg transition disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer;
+}
+@utility sa-btn-secondary {
+  @apply px-4 py-2 border border-slate-300 text-slate-600 text-sm font-semibold rounded-lg hover:bg-slate-50 transition cursor-pointer;
+}
+@utility sa-link-blue { @apply text-xs font-semibold text-blue-700 hover:underline whitespace-nowrap cursor-pointer; }
+@utility sa-link-red { @apply text-xs font-semibold text-red-500 hover:underline cursor-pointer; }
+
+/* ---- Form ---- */
+@utility sa-label {
+  @apply block text-xs font-semibold text-slate-700 mb-1;
+}
+@utility sa-input {
+  @apply w-full border border-slate-300 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none transition;
+}
+@utility sa-select {
+  @apply w-full border border-slate-300 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none transition bg-white;
+}
+@utility sa-password-wrap { @apply relative; }
+@utility sa-password-toggle {
+  @apply absolute inset-y-0 right-0 px-3 text-slate-400 hover:text-slate-600 transition cursor-pointer;
+}
+
+/* ---- Modal ---- */
+@utility sa-modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm px-4 py-6 overflow-y-auto;
+}
+@utility sa-modal-panel { @apply bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden; }
+@utility sa-modal-header {
+  @apply bg-blue-800 px-6 py-4 flex items-center justify-between;
+}
+@utility sa-modal-title { @apply text-white font-bold text-sm; }
+@utility sa-modal-close { @apply text-white/70 hover:text-white text-xl leading-none cursor-pointer; }
+@utility sa-modal-body { @apply p-6; }
+
+/* ---- RW picker & toggle chart ---- */
+@utility sa-rw-picker { @apply flex gap-1.5 flex-wrap; }
+@utility sa-rw-chip {
+  @apply px-3 py-1.5 rounded-lg text-xs font-bold transition border bg-white text-slate-600 border-slate-200 hover:border-blue-300 hover:text-blue-700 cursor-pointer;
+}
+@utility sa-rw-chip-active {
+  @apply px-3 py-1.5 rounded-lg text-xs font-bold transition border bg-blue-800 text-white border-blue-800 cursor-pointer;
+}
+@utility sa-chart-toggle-group { @apply flex bg-slate-100 rounded-lg p-1 gap-1; }
+@utility sa-chart-toggle { @apply px-3 py-1 rounded-md text-xs font-bold transition text-slate-500 hover:text-slate-800 cursor-pointer; }
+@utility sa-chart-toggle-active { @apply px-3 py-1 rounded-md text-xs font-bold transition bg-white text-slate-900 shadow-sm cursor-pointer; }
+
+/* ---- Kartu pengurus & ringkasan ---- */
+@utility sa-person-row { @apply flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100; }
+@utility sa-person-avatar { @apply w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-800 font-extrabold text-xs shrink-0; }
+@utility sa-person-name { @apply text-slate-900 font-bold text-xs; }
+@utility sa-person-role { @apply text-slate-500 text-[10px]; }
+@utility sa-wa-btn {
+  @apply shrink-0 text-[10px] font-bold text-emerald-700 border border-emerald-200 bg-emerald-50 px-2 py-1 rounded-lg hover:bg-emerald-100 transition;
+}
+@utility sa-summary-row { @apply flex justify-between items-center border-b border-slate-100 pb-2.5; }
+@utility sa-summary-label { @apply text-slate-500 text-xs font-semibold; }
+@utility sa-summary-value { @apply text-slate-900 font-bold text-sm; }
+
+@layer components {
+  /* Memaksa seluruh elemen tombol di dalam tabel agar tegak (tidak miring) */
+  .sa-td button,
+  .sa-td button * {
+    font-style: normal !important;
+  }
+}
+/* =========================================================
+   SCROLLBAR TIPIS
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
