@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Pengawas Kelurahan - Bank Sampah Kelurahan Jambangan</title>
+    <link rel="icon" href="../assets/images/logoo.png" type="image/png" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <header class="sa-header">
+      <button id="btnMenu" type="button" aria-label="Buka menu" aria-controls="sidebar" aria-expanded="false" class="sa-menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+
+      <div class="sa-brand">
+        <div class="sa-brand-logo">BS</div>
+        <p class="sa-brand-title">Bank Sampah Jambangan</p>
+      </div>
+
+      <div class="sa-header-right">
+        <span class="sa-role-badge">
+          <span class="sa-role-dot"></span>
+          Kelurahan Jambangan
+        </span>
+        <div class="sa-avatar">KL</div>
+      </div>
+    </header>
+
+    <!-- APP SHELL -->
+    <div class="sa-shell">
+      <div id="sidebarOverlay" class="sa-overlay hidden lg:hidden"></div>
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sa-sidebar -translate-x-full lg:translate-x-0">
+        <div>
+          <div class="sa-sidebar-top">
+            <div class="sa-sidebar-user">
+              <div class="sa-sidebar-avatar">KL</div>
+              <div class="overflow-hidden">
+                <p class="sa-sidebar-name">Super Admin</p>
+                <p class="sa-sidebar-sub">Kel. Jambangan</p>
+              </div>
+            </div>
+            <div class="sa-sidebar-badge">
+              <span class="sa-sidebar-badge-dot"></span>
+              <p class="sa-sidebar-badge-text">Pengawas Kelurahan</p>
+            </div>
+          </div>
+
+          <nav class="sa-nav">
+            <a href="dashboard.html" class="sa-nav-item-active">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="sa-nav-icon-active">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+
+            <a href="unit-bank.html" class="sa-nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="sa-nav-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+              </svg>
+              <span>Unit Bank Sampah</span>
+            </a>
+
+            <a href="unit-rw.html" class="sa-nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="sa-nav-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+              <span>Detail per RW</span>
+            </a>
+
+            <a href="kelola-admin.html" class="sa-nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="sa-nav-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>
+              <span>Akun Admin</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sa-logout-wrap">
+          <a href="../landing.html" class="sa-logout-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 shrink-0">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12" />
+            </svg>
+            <span>Keluar</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- KONTEN UTAMA -->
+      <main class="sa-main">
+        <section class="space-y-6">
+          <div>
+            <p class="sa-page-eyebrow">SUPER ADMIN · KELURAHAN JAMBANGAN</p>
+            <h1 class="sa-page-title">Dashboard Pengawas Kelurahan</h1>
+            <p class="sa-page-desc">Ringkasan seluruh unit bank sampah di wilayah Kelurahan Jambangan.</p>
+          </div>
+
+          <!-- KARTU STATISTIK -->
+          <div id="statCards" class="sa-stat-grid">
+            <!-- Diisi otomatis oleh dashboard.js -->
+          </div>
+
+          <!-- TABEL DAFTAR UNIT -->
+          <div class="sa-table-card">
+            <div class="p-4 sm:p-5 flex items-center justify-between border-b border-slate-100">
+              <p class="text-slate-900 font-bold text-sm">Daftar Unit Bank Sampah</p>
+              <a href="unit-bank.html" class="sa-link-blue">Kelola semua →</a>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="sa-table">
+                <thead class="sa-thead">
+                  <tr>
+                    <th class="sa-th">RW</th>
+                    <th class="sa-th">NAMA UNIT</th>
+                    <th class="sa-th">NASABAH</th>
+                    <th class="sa-th">PENDAPATAN</th>
+                    <th class="sa-th">STATUS</th>
+                    <th class="sa-th"></th>
+                  </tr>
+                </thead>
+                <tbody id="dashboardUnitBody">
+                  <!-- Diisi otomatis oleh dashboard.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../../src/js/super-admin/dashboard.js"></script>
+  </body>
+</html>
