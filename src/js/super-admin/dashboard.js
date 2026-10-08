@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSidebarToggle();
   renderStatCards();
   renderUnitTable();
+  initExportExcel(); // TAMBAHAN
 });
 
 function initSidebarToggle() {
@@ -107,4 +108,89 @@ function renderUnitTable() {
       </tr>
     `;
   }).join('');
+}
+
+/* =========================================================
+   TAMBAHAN: EXPORT REKAP EXCEL
+   ========================================================= */
+
+// Ubah "Rp 4,2 Jt" -> 4200000 supaya di Excel berupa angka (bisa dijumlah)
+function parseRupiah(teks) {
+  const angka = parseFloat(
+    teks.replace(/[^\d,]/g, '').replace(',', '.')
+  );
+  return /jt/i.test(teks) ? Math.round(angka * 1_000_000) : angka;
+}
+
+function initExportExcel() {
+  const btn = document.getElementById('btnExportExcel');
+  if (!btn) return;
+  btn.addEventListener('click', exportRekapExcel);
+}
+
+function exportRekapExcel() {
+  if (typeof XLSX === 'undefined') {
+    alert('Library Excel gagal dimuat. Periksa koneksi internet Anda.');
+    return;
+  }
+
+  const { ringkasan, units } = dashboardData;
+  const wb = XLSX.utils.book_new();
+
+  // ===== Sheet 1: Ringkasan =====
+  const wsRingkasan = XLSX.utils.aoa_to_sheet([
+    ['REKAP BANK SAMPAH KELURAHAN JAMBANGAN'],
+    ['Periode', ringkasan.bulan],
+    [],
+    ['Keterangan', 'Nilai'],
+    ['Unit Bank Sampah Aktif', `${ringkasan.unitAktif} dari ${ringkasan.totalUnit} RW`],
+    ['Total Nasabah Terdaftar', ringkasan.totalNasabah],
+    ['Total Pendapatan Kelurahan', ringkasan.totalPendapatan],
+    ['Total Sampah Terkelola', ringkasan.totalSampah]
+  ]);
+  wsRingkasan['!cols'] = [{ wch: 32 }, { wch: 24 }];
+  wsRingkasan['!merges'] = [{ s: { r: 0, c: 0 }, e: { r: 0, c: 1 } }];
+  XLSX.utils.book_append_sheet(wb, wsRingkasan, 'Ringkasan');
+
+  // ===== Sheet 2: Daftar Unit =====
+  const baris = units.map((u, i) => [
+    i + 1,
+    u.rw,
+    u.nama,
+    u.nasabah,
+    parseRupiah(u.pendapatan),
+    u.status
+  ]);
+
+  const awalData = 2;                       // data mulai di baris ke-2 (header di baris 1)
+  const akhirData = baris.length + 1;
+
+  const wsUnit = XLSX.utils.aoa_to_sheet([
+    ['No', 'RW', 'Nama Unit', 'Jumlah Nasabah', 'Pendapatan (Rp)', 'Status'],
+    ...baris,
+    [
+      '', '', 'TOTAL',
+      { f: `SUM(D${awalData}:D${akhirData})` },
+      { f: `SUM(E${awalData}:E${akhirData})` },
+      ''
+    ]
+  ]);
+
+  // Format ribuan untuk kolom nasabah & pendapatan
+  for (let r = awalData; r <= akhirData + 1; r++) {
+    const nasabah = wsUnit[`D${r}`];
+    const uang = wsUnit[`E${r}`];
+    if (nasabah) nasabah.z = '#,##0';
+    if (uang) uang.z = '"Rp" #,##0';
+  }
+
+  wsUnit['!cols'] = [
+    { wch: 5 }, { wch: 8 }, { wch: 28 },
+    { wch: 16 }, { wch: 20 }, { wch: 12 }
+  ];
+  XLSX.utils.book_append_sheet(wb, wsUnit, 'Daftar Unit');
+
+  // ===== Simpan file =====
+  const namaFile = `Rekap-Bank-Sampah-Jambangan-${ringkasan.bulan.replace(/\s+/g, '-')}.xlsx`;
+  XLSX.writeFile(wb, namaFile);
 }
